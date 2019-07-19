@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <span>{{text}}</span><br>
+    <button @click="add">点我+</button>
+    <button @click="sub">点我-</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { METHODS } from 'http';
+//import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  data:function(){
+    return{
+      count: 0,
+      text:""
+    };
+  },
+  methods:{
+    add:function(){
+     this.count++;
+     this.text="add a number: "+this.count
+    },
+    sub:function(){
+     this.count--;
+     this.text="sub a number: "+this.count
+    }
   }
 }
 </script>
