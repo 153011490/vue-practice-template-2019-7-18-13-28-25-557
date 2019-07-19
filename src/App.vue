@@ -1,43 +1,24 @@
 <template>
   <div id="app">
-    <span>{{text}}</span><br>
-    <button @click="add">点我+</button>
-    <button @click="sub">点我-</button>
+    请输入：<input type="text" v-model="counter"><br>
+    <counter-sum :counter="counter"></counter-sum>
   </div>
 </template>
 
 <script>
-import { METHODS } from 'http';
-//import HelloWorld from './components/HelloWorld.vue'
+//import { METHODS } from 'http';
+import CounterSum from './components/CounterSum.vue';
 
 export default {
   name: 'app',
   data:function(){
     return{
-      count: 0,
-      text:""
+      counter:10
     };
   },
-  methods:{
-    add:function(){
-     this.count++;
-     this.text="add a number: "+this.count
-    },
-    sub:function(){
-     this.count--;
-     this.text="sub a number: "+this.count
-    }
+  components: {
+    CounterSum
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
